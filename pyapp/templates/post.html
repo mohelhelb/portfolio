@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="card center-50" id="scrollbar">
+	<div class="card-body">
+		<h4 class="card-title text-center">
+			{{post.title}}
+            <small class="float-right">
+                #{{post.author.username}}
+            </small>
+		</h4>
+		<hr class="mt-0">
+		<p class="card-text text-left" id="blank-line">{{post.content}}</p>
+	</div>
+</div>
+{% endblock body %}
+
+
+

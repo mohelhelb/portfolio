@@ -1,0 +1,28 @@
+{% macro form_func(field) %}
+    {# form for posts #}
+    {% if field.id in ("title", "content") %}
+        <div class="form-group">
+            <div class="col-sm-12">
+                {{field(autofocus="autofocus", class="form-control", id=field.id, placeholder=field.label.text, rows="11")}}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <p class="danger-text float-left mb-3">{{error}}</p>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    {# form for signing in/signing up #}
+    {% else %}
+        <div class="form-group row">
+            {{field.label(class="col-sm-3 col-form-label text-left", for=field.id)}}
+            <div class="col-sm-9">
+                {{field(autofocus="autofocus", class="form-control", id=field.id, placeholder=field.label.text)}}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <p class="danger-text float-left mb-0">{{error}}</p>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endmacro %}

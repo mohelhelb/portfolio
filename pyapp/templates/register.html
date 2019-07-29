@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+<!-- Imports -->
+{% from "components/_macro.html" import form_func %}
+
+{% block body %}
+<div class="center text-white">
+    <div class="card border-success bg-dark">
+        <div class="card-body">
+            <h4 class="card-title baloo">
+                Register
+            </h4>
+            <hr>
+            <form action="" method="POST">
+            <fieldset>
+                <!-- <legend>Register</legend> -->
+                {{form_func(form.username)}}
+                {{form_func(form.email)}}
+                {{form_func(form.password)}}
+                {{form_func(form.confirm_password)}}
+                <button class="btn btn-primary" type="submit">
+                    Submit
+                </button>
+            </fieldset>
+        </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+

@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="center text-white">
+    <div class="card border-success bg-dark">
+        <div class="card-body">
+            <h1 class="card-title baloo">P stands for Python</h1>
+            <hr>
+            <h3 class="card-subtitle">Posts on Python and related technologies</h3>
+            <br>
+            <p class="card-text">
+                It's said that people come to python for the language, but stay for its
+                community. Want to share your knowledge about Python with the Python community?
+            </p>
+        </div>
+        <div class="card-footer mb-2 mt-2">
+            <a class="btn btn-primary card-link" href={{url_for("login")}} role="button">Login</a>
+            <a class="btn btn-primary card-link ml-1" href={{url_for("register")}} role="button">Register</a>
+        </div>
+    </div>
+</div>
+{% endblock body %}

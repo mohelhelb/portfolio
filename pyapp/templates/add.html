@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+<!-- Imports -->
+{% from "components/_macro.html" import form_func %}
+
+{% block body %}
+<div class="card border-success bg-dark center-50">
+	<div class="card-body">
+		<h4 class="card-title baloo">
+			New Post
+		</h4>
+		<hr>
+		<form action="" method="POST">
+			<fieldset>
+				<!-- <legend>Add Post</legend> -->
+				{{form_func(form.title)}}
+				{{form_func(form.content)}}
+				<button class="btn btn-primary" type="submit">
+					Add
+				</button>
+				<button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#exampleModal">
+					Discard
+				</button>
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="text-right mr-2">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>Are you sure you want to discard changes?</p>
+							</div>
+							<div class="modal-footer justify-content-center">
+								<a class="btn btn-secondary" href={{url_for("dashboard", username=session["username"])}} role="button">
+									Yes
+								</a>
+								<button type="button" class="btn btn-primary" data-dismiss="modal">
+									No
+								</button>
+							</div>
+						</div>
+					</div>
+				</div><!-- /Modal -->
+			</fieldset>
+		</form>
+	</div>
+</div>
+{% endblock body %}

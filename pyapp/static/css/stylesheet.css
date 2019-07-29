@@ -1,0 +1,64 @@
+/*** Element ***/
+
+body {
+    background-image: url("../images/wallpaper.jpg");
+    background-repeat: no-repeat;
+    font-family: computer modern;
+}
+
+/*** Id ***/
+
+/* Used in login */
+#baloo-16 {
+    font-family: 'Baloo Chettan', cursive;
+    font-size: 16pt;
+    color: #00ff00;
+}
+
+#blue-4f {
+    color: #4db8ff;
+}
+
+#scrollbar {
+    overflow-y: scroll;
+}
+
+#blank-line {
+    white-space: pre-wrap;
+}
+
+/*** Class ***/
+
+.center {
+    margin: auto;
+    margin-top: 5%;
+    /* color: white;*/
+    text-align: center;
+    width: 42em;
+}
+
+.center-20 {
+    margin: auto;
+    margin-top: 5%;
+    color: white;
+    text-align: center;
+    width: 20em;
+}
+
+.center-50 {
+    margin: auto;
+    margin-top: 2%;
+    text-align: center;
+    width: 90%;
+    height: 30em;
+}
+
+.baloo {
+    font-family: 'Baloo Chettan', cursive;
+    color: #00ff00 !important;
+}
+
+.danger-text {
+    font-size: x-small;
+    color: #ff8080;
+}

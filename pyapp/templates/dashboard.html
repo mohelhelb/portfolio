@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container bg-transparent mt-5">
+	<div class="row">
+		{% if my_posts %}
+			{% for post in my_posts %}
+			<div class="col-sm-4 mb-3">
+				<div class="card border-success text-center bg-dark">
+					<div class="card-body">
+						<h4 class="card-title">
+							<a class="baloo text-decoration-none" href={{url_for("post", post_id=post.post_id)}} target="_blank">
+								{{post.title}}
+							</a>
+						</h4>
+						<p class="card-text text-white">
+							{{post.date_posted.strftime("%B %d, %Y")}}
+						</p>
+					</div>
+					<div class="card-footer">
+						<!-- Edit Post -->
+						<span data-container="body" data-toggle="popover" data-placement="left" data-content="Edit Post" data-trigger="hover">
+                            <a class="btn btn-primary" href={{url_for("edit", username=username, post_id=post.post_id)}} role="button">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </span>
+						<!-- Delete Post -->
+						<span data-container="body" data-toggle="popover" data-placement="right" data-content="Delete post" data-trigger="hover">
+                            <!-- Button trigger modal -->
+                            <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#exampleModal">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </span>
+						<!-- Modal -->
+						<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="text-right mr-2">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<p>Are you sure you want to delete post?</p>
+									</div>
+									<div class="modal-footer d-flex justify-content-center">
+										<a class="btn btn-secondary" href={{url_for("delete", username=session["username"], post_id=post.post_id)}} role="button">
+											Yes
+										</a>
+										<button type="button" class="btn btn-primary" data-dismiss="modal">
+											No
+										</button>
+									</div>
+								</div>
+							</div>
+						</div> <!-- /Modal -->
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		{% else %}
+		<div class="center">
+            <div class="card border-success text-white text-center bg-dark">
+                <div class="card-body">
+                    <h4 class="card-title baloo">
+                        Hi, {{username}}!
+                    </h4>
+                    <p class="card-text">
+                        What are you waiting for? Click on the button below to add a post.
+                    </p>
+                    <a class="btn btn-primary" href={{url_for("add", username=username)}} role="button">
+                        Add Post
+                    </a>
+                </div>
+            </div>
+        </div>
+		{% endif %}
+	</div>
+</div>
+{% endblock body %}

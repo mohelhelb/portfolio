@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container bg-transparent mt-5 text-white text-center">
+    <div class="row">
+        {% if posts %}
+            {% for post in posts %}
+                <div class="col-sm-4 mb-3">
+                    <div class="card border-success bg-dark">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a class="baloo text-decoration-none" href={{url_for("post", post_id=post.post_id)}} role="button" target="_blank">
+                                    {{post.title}}
+                                </a>
+                            </h4>
+                            <p class="card-text">
+                                by {{post.author.username}}
+                            </p>
+                            <a href={{url_for("post", post_id=post.post_id)}} class="btn btn-primary" role="button" target="_blank">
+                                Read Post
+                            </a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            {{post.date_posted.strftime("%B %d, %Y")}}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+        <div class="center text-white text-center">
+            <div class="card border-success bg-dark">
+                <div class="card-body">
+                    <h4 class="card-title baloo">
+                        <i class="far fa-frown fa-3x"></i>
+                    </h4>
+                    <p class="card-text">
+                        There is no posts available for the time being
+                    </p>
+                    <a class="btn btn-primary card-link" href={{url_for("login")}} role="button">Login</a>
+                    <a class="btn btn-primary card-link ml-1" href={{url_for("register")}} role="button">Register</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock body %}
