@@ -38,4 +38,4 @@ software deployment, etc.
 
 
 ### Inspiration
-This application is based on Mr. Traversy's inspirational [video tutorials on Flask](https://www.youtube.com/watch?v=zRwy8gtgJ1A)(@bradtraversy).
+This application is based on Mr. Traversy's inspirational [video tutorials on Flask](https://www.youtube.com/watch?v=zRwy8gtgJ1A) (@bradtraversy).
